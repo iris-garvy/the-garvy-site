@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARVY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            height: 100vh;
+        }
+
+        /* Left Panel - About */
+        .left-panel {
+            background: #000;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 2px solid #333;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #ffbdde, #b5a5ff);
+            margin: 0 auto 1.5rem;
+            clip-path: polygon(20% 0%, 100% 20%, 80% 100%, 0% 80%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .profile h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: #ffbdde;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #b5a5ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem 1rem;
+            border: 1px solid #b5a5ff;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            transition: all 0.3s ease;
+        }
+
+        .social-links a:hover {
+            background: #b5a5ff;
+            color: #000;
+        }
+
+        /* Right Panel - Sections Grid */
+        .right-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+            background: #333;
+        }
+
+        .section {
+            background: #000;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .section:hover {
+            background: linear-gradient(135deg, #222, #333);
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block; /* Add this */
+            vertical-align: middle; /* Add this */ 
+        }
+
+        .section p {
+            color: #ccc;
+            line-height: 1.3;
+            margin-bottom: 1rem;
+            font-size: 0.95rem;
+        }
+
+        .section-icon {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 1rem;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .graphic-and-heading {
+            display: flex;          /* Makes graphic + h2 align horizontally */
+            flex-direction: row;    /* Side-by-side layout */
+            align-items: center;    /* Vertically centers items */
+            gap: 16px;             /* Adds space between graphic and h2 */
+        }
+
+
+        /* Section specific colors */
+        .music h2 { color: #b5a5ff; }
+        .music .section-icon { background: #b5a5ff; }
+
+        .comedy h2 { color: #ffbdde; }
+        .comedy .section-icon { background: #ffbdde; }
+
+        .math h2 { color: #ffbdde; }
+        .math .section-icon { background: #ffbdde; }
+
+        .merch h2 { color: #ffbdde; }
+        .merch .section-icon { background: linear-gradient(45deg, #ffbdde, #b5a5ff); }
+
+        .boardgame h2 { color: #b5a5ff; }
+        .boardgame .section-icon { background: #b5a5ff; }
+
+        .btn {
+            display: inline-block;
+            padding: 0.2rem 0rem;
+            background: transparent;
+            color: #fff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: 1px;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .btn:hover {
+            background: #000;
+            color: #ffffff;
+        }
+
+        /* Bottom section spans full width */
+        .merch {
+            grid-column: 1 / -1;
+            padding: 1.5rem 2rem;
+        }
+
+        .merch-items {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .merch-item {
+            background: #333;
+            padding: 1rem;
+            text-align: center;
+            flex: 1;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+
+        .merch-item h4 {
+            color: #b5a5ff;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: #ffbdde;
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+                overflow-y: auto;
+            }
+            
+            body {
+                overflow: auto;
+            }
+            
+            .left-panel {
+                border-right: none;
+                border-bottom: 2px solid #333;
+                padding: 1.5rem;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .profile h1 {
+                font-size: 2rem;
+            }
+            
+            .right-panel {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, auto);
+            }
+            
+            .merch {
+                grid-column: 1;
+            }
+            
+            .merch-items {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel - About -->
+        <div class="left-panel">
+            <div class="profile">
+                <div class="profile-image">Your Photo</div>
+                <h1>GARVY</h1>
+                <p>HI! I'm a Mathematics PhD-student by day and a pun/bit-loving, music-making, tetris-playing, board game-developing, church-going girly-pop... also by day :D</p>
+                <div class="social-links">
+                    <a href="https://x.com/garvidge">Twitter</a>
+                    <a href="https://www.twitch.tv/garvidge">Twitch</a>
+                    <a href="https://www.linkedin.com/in/iris-shi-b52b29171/">LinkedIn</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Sections Grid -->
+        <div class="right-panel">
+            <div class="section music">
+                <div class="graphic-and-heading">
+                    <div class="section-icon"></div>
+                    <h2>Music</h2>
+                </div>
+                <p> Hi, please check out my music! I'm on every streaming service! <br> I make (hyper)pop and edm with hip hop influence.</p>
+                <a href="#" class="btn">Spotify</a>
+                <a href="#" class="btn">Youtube</a>
+                <a href="#" class="btn">Apple Music</a>
+                <a href="#" class="btn">Soundcloud</a>
+                <a href="#" class="btn">Tidal</a>
+                <a href="#" class="btn">Deezer</a>
+            </div>
+
+            <div class="section comedy">
+                <div class="graphic-and-heading">
+                    <div class="section-icon"></div>
+                    <h2>jokes</h2>
+                </div>
+                <p>I have a comedy youtube channel I run with my friends called BooCube. I'll also host a couple lists of funny things here.
+                    Other than that I am funny on twitter and you can redeem jokes on my twitch stream :D</p>
+                <a href="https://www.youtube.com/@boocubetv" class="btn">BooCubeTV</a>
+                <a href="https://www.twitch.tv/garvidge" class="btn">Twitch</a>
+                <a href="#" class="btn">Advanced Would You Rather Questions</a>
+                <a href="#" class="btn">The Big List of Garvy Jokes</a>
+                <a href="#" class="btn">My favorite Clint Stevens clips</a>
+            </div>
+
+            <div class="section math">
+                <div class="graphic-and-heading">
+                    <div class="section-icon"></div>
+                    <h2>Math/CS</h2>
+                </div>
+                <p>My dissertation topic is in Algebraic Geometry, specifically studying curves over finite fields, but I do some other math and programming stuff too. Here are some things
+                    that I've done and some things that I'm learning about!
+                </p>
+                <a href="https://arxiv.org/abs/2411.11201" class="btn">An Infinite Family of Artin-Schreier Curves by Me :3</a>
+                <a href="https://github.com/iris-garvy" class="btn">My GitHub</a>
+                <a href="https://www2.math.upenn.edu/~harbater/patch35.pdf" class="btn">Patching and Galois Theory by Harbater</a>
+                <a href="https://arxiv.org/abs/1808.01513" class="btn">Toward a Spectral Theory of Cellular Sheaves by Hansen and Ghrist</a>
+                <a href="https://webhomes.maths.ed.ac.uk/~v1ranick/papers/eisenbudharris.pdf" class="btn">The Geometry of Schemes by Eisenbud and Harris</a>
+                <a href="https://arxiv.org/abs/2407.13966" class="btn">Iwasawa theory of Frobenius-torsion class group schemes by Booher, et al.</a>
+            </div>
+
+            <div class="section boardgame">
+                <div class="graphic-and-heading">
+                    <div class="section-icon"></div>
+                    <h2>Board Game</h2>
+                </div>
+                <p>Check out the board game I made with my brothers, Small Fishes: Seas the Booty! <br> It will be available for pre-order soon so keep posted. My friend Joyce did all of the 
+                    illustrations and most of the design work (i did a lil too).
+                </p>
+                <a href="https://arxiv.org/abs/2411.11201" class="btn">Small Fishes: Seas the Booty! Kicstarter Page</a>
+                <a href="https://github.com/iris-garvy" class="btn">Shi Made Games Instagram</a>
+                <a href="https://www.instagram.com/joylychi" class="btn">Joyce's Instagram</a>
+                <a href="https://joylychi.bigcartel.com/category/new" class="btn">Joyce's Shop</a>
+            </div>
+
+            <div class="section merch">
+                <div class="graphic-and-heading">
+                    <div class="section-icon"></div>
+                    <h2>Merch</h2>
+                </div>
+                <p>I've wanted to make merch for a while. We'll see if this ever actually happens though.</p>
+                <div class="merch-items">
+                    <div class="merch-item">
+                        <h4>T-Shirts</h4>
+                        <div class="price">N/A</div>
+                    </div>
+                    <div class="merch-item">
+                        <h4>Hoodies</h4>
+                        <div class="price">N/A</div>
+                    </div>
+                    <div class="merch-item">
+                        <h4>Chokers</h4>
+                        <div class="price">N/A</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
