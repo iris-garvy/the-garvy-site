@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARVY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            height: 100vh;
+        }
+
+        /* Left Panel - About */
+        .left-panel {
+            background: #000;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 2px solid #333;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #ffbdde, #b5a5ff);
+            margin: 0 auto 1.5rem;
+            clip-path: polygon(20% 0%, 100% 20%, 80% 100%, 0% 80%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .profile h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: #ffbdde;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #b5a5ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem .9rem 0.5rem 0.8rem;
+            border: 1px solid #b5a5ff;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .social-links a:hover {
+            background: #b5a5ff;
+            color: #000;
+        }
+
+        .social-link-icon {
+            display: flex;
+            margin-right: 0;
+            transition: filter 0.3s ease;
+            padding: 0rem 0rem;
+            width: 14px;
+        }
+
+        .social-links a:hover .social-link-icon {
+            filter: brightness(0);
+        }
+
+        /* Right Panel - Sections Grid */
+        .right-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+            background: #333;
+        }
+
+        .section {
+            background: #000;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block; /* Add this */
+            vertical-align: middle; /* Add this */ 
+        }
+
+        .section p {
+            color: #ccc;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .section-icon {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 1rem;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .graphic-and-heading {
+            display: flex;    
+            flex-direction: row;   
+            align-items: center;   
+            gap: 16px;             
+        }
+        
+
+
+
+
+
+        /* Section specific colors */
+        .wouldyourather h2 { color: #ffbdde; }
+        .wouldyourather .section-icon { background: #ffbdde; }
+
+        .btn {
+            flex: none;
+            display: flex;
+            padding: 0.2rem 0rem;
+            background: transparent;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: .7px;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .btn:hover {
+            background: #000;
+        }
+
+        .btn-icons {
+            display: flex;
+            margin-right: 0;
+            transition: filter 0.3s ease;
+            padding: 0rem 0rem;
+            width: 14px;
+        }
+
+        /* Bottom section spans full width */
+        .wouldyourather {
+            grid-column: 1 / -1;
+            grid-row: 1 / -1;
+            padding: 1.5rem 2rem;
+        }
+
+        .wouldyourather-items {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .wouldyourather-item {
+            background: #333;
+            padding: 1rem;
+            text-align: center;
+            flex: 1;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+
+        .wouldyourather-item h4 {
+            color: #b5a5ff;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: #ffbdde;
+            font-weight: bold;
+        }
+
+        @media (min-width: 1024px) {
+            .right-panel {
+                overflow-y: auto;
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+                overflow-y: auto;
+            }
+            
+            body {
+                overflow: auto;
+            }
+            
+            .left-panel {
+                border-right: none;
+                border-bottom: 2px solid #333;
+                padding: 1.5rem;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .profile h1 {
+                font-size: 2rem;
+            }
+            
+            .right-panel {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, auto);
+            }
+            
+            .wouldyourather {
+                grid-column: 1;
+            }
+            
+            .wouldyourather-items {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel - About -->
+        <div class="left-panel">
+            <div class="profile">
+                <div class="profile-image">
+                    <a href="index.html"><img src="images/cat-profile-pic.png" width="67.9%" alt="me but its a cat so its not me since im a human"></a>
+                </div>
+                <h1><a href="index.html">GARVY</a></h1>
+                <p>HI! I'm a Mathematics PhD-student by day and a pun/bit-loving, music-making, tetris-playing, board game-developing, church-going girly-pop... also by day :D</p>
+                <div class="social-links">
+                    <a href="https://x.com/garvidge">
+                        <img src="images/X-Purple.png" class="social-link-icon">
+                        Twitter
+                    </a>
+                    <a href="https://www.twitch.tv/garvidge">
+                        <img src="images/twitch logo.png" class="social-link-icon">
+                        Twitch
+                    </a>
+                    <a href="https://www.linkedin.com/in/iris-shi-b52b29171/">
+                        <img src="images/linkedin logo.png" class="social-link-icon">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Sections Grid -->
+        <div class="right-panel">
+            <div class="section wouldyourather">
+                <div class="graphic-and-heading">
+                    <div class="section-icon"></div>
+                    <h2>Advanced Would You Rather Questions</h2>
+                </div>
+                <p>This is a list of ADVANCED icebreaker questions that I've written! Ask your friends (or new people) at your own risk.<br></p>
+                <p>
+                    <span style="color:white"> 
+                        Would you take a million dollars if there’s a snail always following you?<br><br>
+                        Would you rather be hot and bothered, or hot and watered? (context you’re a cactus)<br><br>
+                        Would you rather kiss a dog that’s just brushed his teeth or a girl who doesn’t believe in the Rwandan genocide?<br><br>
+                        Imagine you’re the ruler of the moon, who would you moon first?<br><br>
+                        If you could kill me would you?<br><br>
+                        Would you rather be pretty or pretty dumb?<br><br>
+                        Would you rather be pretty or pretty gay?<br><br>
+                        Would you rather spill a little coffee on your table or eat a sandwich with poo inside it?<br><br>
+                        Would you rather be Sri Lankan or just your ugly stupid self?<br><br>
+                        Picture the hottest person you can imagine. Now picture the ugliest person you can imagine. Now answer honestly. Are you racist?<br><br>
+                        How many of the following words do you know the definition of without looking it up? 
+                        help, i, am, trapped, in, the, concept, of, this, punchline, save, me.<br><br>
+                        If you were Chinese, would you like Pokemon or Digimon better?<br>
+                    </span> 
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

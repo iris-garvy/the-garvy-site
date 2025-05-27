@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GARVY</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            height: 100vh;
+        }
+
+        /* Left Panel - About */
+        .left-panel {
+            background: #000;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 2px solid #333;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #ffbdde, #b5a5ff);
+            margin: 0 auto 1.5rem;
+            clip-path: polygon(20% 0%, 100% 20%, 80% 100%, 0% 80%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .profile h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: #ffbdde;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+
+        .social-links a {
+            color: #b5a5ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem .9rem 0.5rem 0.8rem;
+            border: 1px solid #b5a5ff;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .social-links a:hover {
+            background: #b5a5ff;
+            color: #000;
+        }
+
+        .social-link-icon {
+            display: flex;
+            margin-right: 0;
+            transition: filter 0.3s ease;
+            padding: 0rem 0rem;
+            width: 14px;
+        }
+
+        .social-links a:hover .social-link-icon {
+            filter: brightness(0);
+        }
+
+        /* Right Panel - Sections Grid */
+        .right-panel {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            grid-template-rows: 1fr 1fr;
+            gap: 2px;
+            background: #333;
+            overflow-y: auto;
+        }
+
+        .section {
+            background: #000;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block; /* Add this */
+            vertical-align: middle; /* Add this */ 
+        }
+
+        .section p {
+            color: #ccc;
+            line-height: 1.3;
+            margin-bottom: 2rem;
+            font-size: 0.95rem;
+        }
+
+        .section-icon {
+            width: 30px;
+            height: 30px;
+            margin-bottom: 1rem;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+        }
+
+        .graphic-and-heading {
+            display: flex;    
+            flex-direction: row;   
+            align-items: center;   
+            gap: 16px;             
+        }
+        
+
+
+
+
+
+        /* Section specific colors */
+        .wouldyourather h2 { color: #ffbdde; }
+        .wouldyourather .section-icon { background: #ffbdde; }
+
+        .btn {
+            flex: none;
+            display: flex;
+            padding: 0.2rem 0rem;
+            background: transparent;
+            text-decoration: none;
+            font-size: 0.9rem;
+            letter-spacing: .7px;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .btn:hover {
+            background: #000;
+        }
+
+        .btn-icons {
+            display: flex;
+            margin-right: 0;
+            transition: filter 0.3s ease;
+            padding: 0rem 0rem;
+            width: 14px;
+        }
+
+        /* Bottom section spans full width */
+        .wouldyourather {
+            grid-column: 1 / -1;
+            grid-row: 1 / -1;
+            padding: 1.5rem 2rem;
+        }
+
+        .wouldyourather-items {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+
+        .wouldyourather-item {
+            background: #333;
+            padding: 1rem;
+            text-align: center;
+            flex: 1;
+            clip-path: polygon(10% 0%, 100% 0%, 90% 100%, 0% 100%);
+        }
+
+        .wouldyourather-item h4 {
+            color: #b5a5ff;
+            font-size: 0.9rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .price {
+            color: #ffbdde;
+            font-weight: bold;
+        }
+
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+                overflow-y: auto;
+            }
+            
+            body {
+                overflow: auto;
+            }
+            
+            .left-panel {
+                border-right: none;
+                border-bottom: 2px solid #333;
+                padding: 1.5rem;
+            }
+            
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .profile h1 {
+                font-size: 2rem;
+            }
+            
+            .right-panel {
+                grid-template-columns: 1fr;
+                grid-template-rows: repeat(4, auto);
+            }
+            
+            .wouldyourather {
+                grid-column: 1;
+            }
+            
+            .wouldyourather-items {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel - About -->
+        <div class="left-panel">
+            <div class="profile">
+                <div class="profile-image">
+                    <a href="index.html"><img src="images/cat-profile-pic.png" width="67.9%" alt="me but its a cat so its not me since im a human"></a>
+                </div>
+                <h1><a href="index.html">GARVY</a></h1>
+                <p>HI! I'm a Mathematics PhD-student by day and a pun/bit-loving, music-making, tetris-playing, board game-developing, church-going girly-pop... also by day :D</p>
+                <div class="social-links">
+                    <a href="https://x.com/garvidge">
+                        <img src="images/X-Purple.png" class="social-link-icon">
+                        Twitter
+                    </a>
+                    <a href="https://www.twitch.tv/garvidge">
+                        <img src="images/twitch logo.png" class="social-link-icon">
+                        Twitch
+                    </a>
+                    <a href="https://www.linkedin.com/in/iris-shi-b52b29171/">
+                        <img src="images/linkedin logo.png" class="social-link-icon">
+                        LinkedIn
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel - Sections Grid -->
+        <div class="right-panel">
+            <div class="section wouldyourather">
+                <div class="graphic-and-heading">
+                    <div class="section-icon"></div>
+                    <h2>The Big List of Garvy Jokes</h2>
+                </div>
+                <p>Here's a compilations of some jokes I've written! Some of them have appeared in various other places. My humor 
+                    was honed by making jokes in twitch chats and leans towards light hearted and silly wordplay, but you know... anything for that laugh in the room.
+                </p>
+                <p>
+                    <span style="color:white"> 
+                        People tell me I fart like a gay man, not because I fart a lot but because of my inherent similarity to gay icon Andersson Cooper <br><br>
+                        One time I thought I found Dory in the seafood isle, but actually it was just a member of the blue man group who had developed early onset Alzheimer’s <br><br>
+                        “I really need to brush up on my Russian” said the man who forgot he was in the middle of painting his Russian child blue.<br><br>
+                        Sports fans always argue whether or not KD is better than LBJ. I never had any idea Lyndon b Johnson was so good at basketball. <br><br>
+                        I’m not like most girls. I smell like a freaking oyster. <br><br>
+                        It turns out that Kanye’s future sunday service concerts have been canceled amidst rumors of staff mistreatment. 
+                        In other news, I have some tickets in case someone wanted to go to some church somewhere. <br><br>
+                        Arthur’s, from the children’s tv show, full name is actually Arthur Read to show that he has the ability to read. 
+                        Also, I’m looking to hire anyone with the last name of blow job<br><br>
+                        Mussolini was just rated 71st on the list of the most evil people ever, 
+                        which is just above Emperor Nero and right under the guy who made single ply toilet paper<br><br>
+                        Every great chef will tell you that your eyes eat first, but not mine, 
+                        mine are in time out for looking at for the leaked photos of Danny Devito’s asshole <br><br>
+                        They say that dogs don’t understand how mirrors work, 
+                        and that’s why they always bark at them, unlike us humans who know to be polite to our twin.<br><br>
+                        Digital photos are usually filtered by altering their RGB values, which of course is named after the legendary Ruth Gader Binsburg <br><br>
+                        Maybe our allies betray us because it was never an alliance, all along it was just short for Allison <br><br>
+                        They say that sometimes you have to take short term pain for long term gain but I still have no idea why my doctor bit my dick off. <br><br>
+                        I’m really bad in competitions because my hands always shake when I’m nervous.
+                        They also shake when I’m not nervous. I’ve replaced my hands with vibrators. <br><br>
+                        tpot accounts are always talking about the grind. I hope they don’t mean their teeth 😬 <br><br>
+                        I hate when interviewers ask what my biggest flaw is. It’s like impossible to explain how I got a jar of peanut butter stuck in my ass. <br><br>
+                        I wonder if kissing a person is anything like kissing the mirror. <br><br>
+                        I’m a normal gal just like the rest of y'all, after I have a stressful day I like to hit the town. The town is what I call our family dog.
+                    </span> 
+                </p>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
