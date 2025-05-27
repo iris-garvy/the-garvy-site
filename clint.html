@@ -153,21 +153,13 @@
             gap: 16px;             
         }
 
-        .video-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-            padding: 2rem;
-            background: #000;
-        }
-
         .video-container {
             position: relative;
             overflow: hidden;
             border-radius: 12px;
             background: #333;
             transition: transform 0.3s ease;
-            aspect-ratio: 16/5;
+            aspect-ratio: 16/9;
         }
 
         .video-container:hover {
@@ -220,7 +212,6 @@
 
         .wouldyourather {
             grid-column: 1 / -1;
-            grid-row: 1 / -1;
             padding: 1.5rem 2rem;
             display: flex;
             flex-direction: column;
@@ -336,35 +327,58 @@
                 <p>I'm a super fan of twitch streamer/speedrunner Clint Stevens (I even made a <a href="https://youtu.be/Px7JcD9LwoM?si=hsjv5apCjyTtScK6">fansong</a>). 
                     Here are some clips of my favorite Clint Stevens Jokes and Moments!
                 </p>
-                </div class="video-grid">
-                    <div class="video-container">
+            </div>
+
+            <div class="section">
+                <div class="video-container">
                     <iframe   src="https://www.youtube.com/embed/vqvc64M7f0o?si=gi7oDZHo3LOr7ws8&amp;clip=UgkxdETop_Br_ZUd_V14ARn1kstKvT2zR7tc&amp;clipt=EOPTExjWpBU" 
                     title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
-                    web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                    <div class="video-container">
+                    web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="video-container">
                     <iframe width="560" height="315" 
                     src="https://www.youtube.com/embed/ajIiZd5y9Ds?si=pxZ6Dq9yXTGWfe4C&amp;clip=UgkxzuuJQzJm1VuVJwj1_vcIfvUwAUuI-bb6&amp;clipt=EPSAARjIyQE" 
                     title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
-                    web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                    <div class="video-container">
+                    web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="video-container">
                     <iframe width="560" height="315" src="https://www.youtube.com/embed/PBAs2E5j9bM?si=ojur7XDO-j0P1uMB" title="YouTube video player" 
                     frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
-                    web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                    <div class="video-container">
+                    web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="video-container">
                     <iframe 
                     src="https://www.youtube.com/embed/QKJNu2VFXK8?si=P94_4x0mCEmjqble&amp;clip=UgkxJvGymIfy5PF5d6-dMMJ9x3BgO3Mawg73&amp;clipt=EKimExi3zRQ" 
                     title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; 
-                    web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                    <div class="video-container">
-                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Kbw7YnBCFW0?si=o_KaeG-sphivP12N&amp;clip=UgkxNLlgfkTI7J575kRp0wVl6uEWEguCF25c&amp;clipt=EMyOFxjImhk" 
-                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
-                    encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-                    <div class="video-container">
-                    <iframe  src="https://www.youtube.com/embed/k9cXDaYRnRU?si=hQA3WNM7yDBj8pBQ" 
-                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
-                    gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
+                    web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
                 </div>
             </div>
+
+            <div class="section">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/Kbw7YnBCFW0?si=o_KaeG-sphivP12N&amp;clip=UgkxNLlgfkTI7J575kRp0wVl6uEWEguCF25c&amp;clipt=EMyOFxjImhk" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; 
+                    encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <div class="section">
+                <div class="video-container">
+                    <iframe  src="https://www.youtube.com/embed/k9cXDaYRnRU?si=hQA3WNM7yDBj8pBQ" 
+                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; 
+                    gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+                </div>
+            </div>
+            
         </div>
     </div>
 
