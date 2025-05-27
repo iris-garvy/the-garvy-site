@@ -25,7 +25,7 @@
             height: 100vh;
         }
 
-        /* Left Panel - About */
+        /* Left Panel  */
         .left-panel {
             background: #000;
             padding: 2rem;
@@ -104,7 +104,7 @@
             filter: brightness(0);
         }
 
-        /* Right Panel - Sections Grid */
+        /* Right Panel */
         .right-panel {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -153,33 +153,33 @@
             gap: 16px;             
         }
 
-.video-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 1.5rem;
-    padding: 2rem;
-    background: #000;
-}
+        .video-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            padding: 2rem;
+            background: #000;
+        }
 
-.video-container {
-    position: relative;
-    overflow: hidden;
-    border-radius: 12px;
-    background: #333;
-    transition: transform 0.3s ease;
-    aspect-ratio: 16/5;
-}
+        .video-container {
+            position: relative;
+            overflow: hidden;
+            border-radius: 12px;
+            background: #333;
+            transition: transform 0.3s ease;
+            aspect-ratio: 16/5;
+        }
 
-.video-container:hover {
-    transform: translateY(-5px);
-}
+        .video-container:hover {
+            transform: translateY(-5px);
+        }
 
-.video-container iframe {
-    width: 100%;
-    height: 100%;
-    border: none;
-    border-radius: 12px;
-}
+        .video-container iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            border-radius: 12px;
+        }
 
 
 
@@ -217,7 +217,7 @@
             width: 14px;
         }
 
-        /* Bottom section spans full width */
+
         .wouldyourather {
             grid-column: 1 / -1;
             grid-row: 1 / -1;
@@ -257,7 +257,7 @@
             }
         }
 
-        /* Responsive Design */
+
         @media (max-width: 1024px) {
             .container {
                 grid-template-columns: 1fr;
@@ -301,7 +301,7 @@
 </head>
 <body>
     <div class="container">
-        <!-- Left Panel - About -->
+        <!-- Left Panel -->
         <div class="left-panel">
             <div class="profile">
                 <div class="profile-image">

@@ -25,7 +25,7 @@
             height: 100vh;
         }
 
-        /* Left Panel - About */
+        /* Left Panel*/
         .left-panel {
             background: #000;
             padding: 2rem;
@@ -104,7 +104,7 @@
             filter: brightness(0);
         }
 
-        /* Right Panel - Sections Grid */
+        /* Right Panel: Sections Grid */
         .right-panel {
             display: grid;
             grid-template-columns: 1fr 1fr;
@@ -132,8 +132,8 @@
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            display: inline-block; /* Add this */
-            vertical-align: middle; /* Add this */ 
+            display: inline-block; 
+            vertical-align: middle; 
         }
 
         .section p {
@@ -222,11 +222,11 @@
 
         .btn:hover .btn-github-icon {
             filter: 
-                brightness(1.1) /* Adjust brightness if needed */
-                sepia(1)        /* Base color for tinting */
-                saturate(15)     /* Increase saturation */
-                hue-rotate(180deg) /* Hue to match #ffbdde */
-                drop-shadow(0 0 5px rgba(255, 189, 222, 0.5)); /* Optional glow */
+                brightness(1.1) 
+                sepia(1)      
+                saturate(15) 
+                hue-rotate(180deg) 
+                drop-shadow(0 0 5px rgba(255, 189, 222, 0.5)); 
         }
 
         .btn-jokes-icon {
@@ -238,11 +238,11 @@
 
         .btn:hover .btn-jokes-icon {
             filter: 
-                brightness(1.1) /* Adjust brightness if needed */
-                sepia(1)        /* Base color for tinting */
-                saturate(15)     /* Increase saturation */
-                hue-rotate(180deg) /* Hue to match #ffbdde */
-                drop-shadow(0 0 5px rgba(255, 189, 222, 0.5)); /* Optional glow */
+                brightness(1.1) 
+                sepia(1)      
+                saturate(15)    
+                hue-rotate(180deg) 
+                drop-shadow(0 0 5px rgba(255, 189, 222, 0.5)); 
         }
 
         .btn-icon {
@@ -254,11 +254,11 @@
 
         .btn:hover .btn-icon {
             filter: 
-                brightness(1.1) /* Adjust brightness if needed */
-                sepia(1)        /* Base color for tinting */
-                saturate(10)     /* Increase saturation */
-                hue-rotate(280deg) /* Hue to match #ffbdde */
-                drop-shadow(0 0 5px rgba(255, 189, 222, 0.5)); /* Optional glow */
+                brightness(1.1) 
+                sepia(1)        
+                saturate(10)     
+                hue-rotate(280deg) 
+                drop-shadow(0 0 5px rgba(255, 189, 222, 0.5)); 
         }
 
         .music-links {
@@ -299,14 +299,14 @@
 
         .music-btn:hover .music-icon {
             filter: 
-                brightness(1.1) /* Adjust brightness if needed */
-                sepia(1)        /* Base color for tinting */
-                saturate(10)     /* Increase saturation */
-                hue-rotate(280deg) /* Hue to match #ffbdde */
-                drop-shadow(0 0 5px rgba(255, 189, 222, 0.5)); /* Optional glow */
+                brightness(1.1) 
+                sepia(1)   
+                saturate(10)    
+                hue-rotate(280deg) 
+                drop-shadow(0 0 5px rgba(255, 189, 222, 0.5)); 
         }
 
-        /* Bottom section spans full width */
+
         .merch {
             grid-column: 1 / -1;
             padding: 1.5rem 2rem;
@@ -342,8 +342,7 @@
                 overflow-y: auto;
             }
         }
-
-        /* Responsive Design */
+        /*for mobile and small people*/
         @media (max-width: 1024px) {
             .container {
                 grid-template-columns: 1fr;
