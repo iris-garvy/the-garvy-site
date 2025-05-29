@@ -108,7 +108,7 @@
         .right-panel {
             display: grid;
             grid-template-columns: 1fr 1fr;
-            grid-template-rows: 1fr 1fr;
+            grid-template-rows: 1fr 4fr;
             gap: 2px;
             background: #333;
         }
@@ -154,7 +154,10 @@
         }
         
 
-
+        .list {
+            grid-column: 1/ -1;
+            padding: 1.5rem 2rem;
+        }
 
 
 
@@ -162,34 +165,8 @@
         .wouldyourather h2 { color: #ffbdde; }
         .wouldyourather .section-icon { background: #ffbdde; }
 
-        .btn {
-            flex: none;
-            display: flex;
-            padding: 0.2rem 0rem;
-            background: transparent;
-            text-decoration: none;
-            font-size: 0.9rem;
-            letter-spacing: .7px;
-            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
-            transition: all 0.3s ease;
-            align-self: flex-start;
-        }
-
-        .btn:hover {
-            background: #000;
-        }
-
-        .btn-icons {
-            display: flex;
-            margin-right: 0;
-            transition: filter 0.3s ease;
-            padding: 0rem 0rem;
-            width: 14px;
-        }
-
         .wouldyourather {
             grid-column: 1 / -1;
-            grid-row: 1 / -1;
             padding: 1.5rem 2rem;
         }
 
@@ -301,6 +278,8 @@
                     <h2>Advanced Would You Rather Questions</h2>
                 </div>
                 <p>This is a list of ADVANCED icebreaker questions that I've written! Ask your friends (or new people) at your own risk.<br></p>
+            </div>
+            <div class="section list">
                 <p>
                     <span style="color:white"> 
                         Would you take a million dollars if there’s a snail always following you?<br><br>
