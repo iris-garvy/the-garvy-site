@@ -269,27 +269,27 @@
     </div>
 
     <script>
-        // Game data - using emoji as placeholder images
+
         const gameData = [
-            // Yellow - Fruits
+
             { id: 1, emoji: "images/dickpics/oop1.png", text: "droop", group: 'yellow', category: 'Ends with -oop: ' },
             { id: 2, emoji: "images/dickpics/oop2.png", text: "goop", group: 'yellow', category: 'Ends with -oop: ' },
             { id: 3, emoji: "images/dickpics/oop3.png", text: "swoop", group: 'yellow', category: 'Ends with -oop: ' },
             { id: 4, emoji: "images/dickpics/oop4.png", text: "troop", group: 'yellow', category: 'Ends with -oop: ' },
             
-            // Green - Animals
+
             { id: 5, emoji: "images/dickpics/animal1.png", text: "dog", group: 'green', category: 'animals: ' },
             { id: 6, emoji: "images/dickpics/animal2.png", text: "elephant", group: 'green', category: 'animals: ' },
             { id: 7, emoji: "images/dickpics/animal3.png", text: "duck", group: 'green', category: 'animals: ' },
             { id: 8, emoji: "images/dickpics/animal4.png", text: "orca",  group: 'green', category: 'animals: ' },
             
-            // Blue - Transportation
+
             { id: 9, emoji: "images/dickpics/ring1.png", text: "", group: 'blue', category: 'Ringed' },
             { id: 10, emoji: "images/dickpics/ring2.png", text: "", group: 'blue', category: 'Ringed' },
             { id: 11, emoji: "images/dickpics/ring3.png", text: "", group: 'blue', category: 'Ringed' },
             { id: 12, emoji: "images/dickpics/ring4.png", text: "", group: 'blue', category: 'Ringed' },
             
-            // Purple - Weather
+
             { id: 13, emoji: "images/dickpics/cock1.png", text: "cock", group: 'purple', category: 'homophone/nym: ' },
             { id: 14, emoji: "images/dickpics/cock2.png", text: "caulk", group: 'purple', category: 'homophone/nym: ' },
             { id: 15, emoji: "images/dickpics/cock3.png", text: "dick", group: 'purple', category: 'homophone/nym: ' },
@@ -425,10 +425,9 @@
         }
 
         function revealAllUnsolvedGroups() {
-            // Get all groups that haven't been solved yet
+
             const unsolvedGroups = {};
-            
-            // Find all unsolved groups
+        
             shuffledData.forEach(item => {
                 const isSolved = solvedGroups.some(group => group.items.includes(item.id));
                 if (!isSolved) {
@@ -443,13 +442,11 @@
                 }
             });
             
-            // Add each unsolved group to solvedGroups and render them
             Object.values(unsolvedGroups).forEach(group => {
                 solvedGroups.push(group);
                 setTimeout(renderSolvedGroup(group),1000);
             });
             
-            // Clear the grid since all groups are now revealed
             grid.innerHTML = '';
         }
 
@@ -482,12 +479,10 @@
             updateSubmitButton();
         }
 
-        // Event listeners
         shuffleBtn.addEventListener('click', shuffleGrid);
         deselectBtn.addEventListener('click', deselectAll);
         submitBtn.addEventListener('click', checkGuess);
 
-        // Initialize game
         shuffleGrid();
     </script>
 </body>
