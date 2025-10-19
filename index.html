@@ -297,6 +297,13 @@
             width: 17px;
         }
 
+        .music-picture {
+            width: 200px;
+            filter:
+                saturate(0)
+                brightness(1.2)
+        }
+
         .music-btn:hover .music-icon {
             filter: 
                 brightness(1.1) 
@@ -304,6 +311,12 @@
                 saturate(10)    
                 hue-rotate(280deg) 
                 drop-shadow(0 0 5px rgba(255, 189, 222, 0.5)); 
+        }
+
+        .music-btn:hover .music-picture {
+            filter: 
+                brightness(.75)   
+                saturate(1)    
         }
 
 
@@ -429,14 +442,14 @@
                 </div>
                 <p>My next song comes out October 29th. Hyperfollow it at <a href="https://distrokid.com/hyperfollow/garvid/be-a-stranger/">BE A STRANGER</a>. It helps with the algo! </p>
                 <div class="video-wrapper">
-                    <a href="https://distrokid.com/hyperfollow/garvid/be-a-stranger/">
-                        <img src="images/beastranger.PNG" width="210">
+                    <a href="https://distrokid.com/hyperfollow/garvid/be-a-stranger/" class="music-btn">
+                        <img src="images/beastranger.PNG" class="music-picture">
                     </a>
-                    <a href="https://distrokid.com/hyperfollow/garvid/be-a-stranger/">
-                        <img src="images/beastranger.PNG" width="210">
+                    <a href="https://distrokid.com/hyperfollow/garvid/be-a-stranger/" class="music-btn">
+                        <img src="images/beastranger.PNG" class="music-picture">
                     </a>
-                    <a href="https://distrokid.com/hyperfollow/garvid/be-a-stranger/">
-                        <img src="images/beastranger.PNG" width="210">
+                    <a href="https://distrokid.com/hyperfollow/garvid/be-a-stranger/" class="music-btn">
+                        <img src="images/beastranger.PNG" class="music-picture">
                     </a>
                     <!-- dog
                     <iframe src="https://www.youtube.com/embed/theKD1tRatM?si=J-uZ5_UwaSEhSbsm" 
