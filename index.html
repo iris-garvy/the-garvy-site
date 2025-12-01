@@ -123,6 +123,7 @@
             transition: all 0.3s ease;
         }
 
+
         .section:hover {
             background: #161616;
         }
@@ -320,6 +321,20 @@
                 saturate(1)    
         }
 
+        .boardgame-columns {
+            display: grid; 
+            grid-template-columns: 1fr 1fr; 
+            grid-template-rows: 100px 100px;
+            gap: 10px; 
+            justify-items: center;
+            margin-top: 0rem;
+            margin-bottom: 0px;
+        }
+
+        .boardgame-block {
+            display: flex;
+            flex-direction: column;
+        }
 
         .merch {
             grid-column: 1 / -1;
@@ -495,10 +510,15 @@
                 <p>Check out the board game I made with my brothers, <a href="https://shiblinggames.com">Small Fishes: Seas the Booty!</a> <br> It is available for pre-order RIGHT NOW. Check out the kickstarter
                     page for more info! It's really good! My friend <a href="https://x.com/joylychi">Joyce</a> did all of the illustrations and most of the design work (i did a lil too).
                 </p>
-                <a href="https://www.kickstarter.com/projects/shiblinggames/small-fishes-seas-the-booty-a-strategy-card-game" class="btn">Small Fishes: Seas the Booty! Kickstarter Page</a>
-                <a href="https://www.instagram.com/shimadegames/#" class="btn"><img src="images/Instagram-Emblem.png" class="btn-icon">Shi Made Games's Instagram</a>
-                <a href="https://www.instagram.com/joylychi" class="btn"><img src="images/Instagram-Emblem.png" class="btn-icon">Joyce's Instagram</a>
-                <a href="https://joylychi.bigcartel.com/category/new" class="btn">Joyce's Shop</a>
+                <div class="boardgame-columns">
+                    <div class="boardgame-block">
+                        <a href="https://www.kickstarter.com/projects/shiblinggames/small-fishes-seas-the-booty-a-strategy-card-game" class="btn">Small Fishes: Seas the Booty! Kickstarter Page</a>
+                        <a href="https://www.instagram.com/shimadegames/#" class="btn"><img src="images/Instagram-Emblem.png" class="btn-icon">Shi Made Games's Instagram</a>
+                        <a href="https://www.instagram.com/joylychi" class="btn"><img src="images/Instagram-Emblem.png" class="btn-icon">Joyce's Instagram</a>
+                        <a href="https://joylychi.bigcartel.com/category/new" class="btn">Joyce's Shop</a>
+                    </div>
+                    <iframe src="https://www.kickstarter.com/projects/shiblinggames/small-fishes-seas-the-booty-a-strategy-card-game/widget/card.html?v=2" width="270" height="210" frameborder="0" scrolling="no"></iframe>
+                </div>
             </div>
 <!--
             <div class="section merch">
