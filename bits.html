@@ -111,7 +111,6 @@
             grid-template-rows: 1fr 1fr;
             gap: 2px;
             background: #333;
-            overflow-y: auto;
         }
 
         .section {
@@ -129,8 +128,8 @@
             margin-bottom: 1rem;
             text-transform: uppercase;
             letter-spacing: 1px;
-            display: inline-block; /* Add this */
-            vertical-align: middle; /* Add this */ 
+            display: inline-block;
+            vertical-align: middle; 
         }
 
         .section p {
@@ -225,6 +224,12 @@
         }
 
 
+
+        @media (min-width: 1024px) {
+            .right-panel {
+                overflow-y: auto;
+            }
+        }
 
         @media (max-width: 1024px) {
             .container {
