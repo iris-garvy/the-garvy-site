@@ -1,0 +1,647 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iris Shi — Research CV</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: #000;
+            color: #fff;
+            height: 100vh;
+            overflow: hidden;
+        }
+
+        .container {
+            display: grid;
+            grid-template-columns: 1fr 3fr;
+            height: 100vh;
+        }
+
+        /* Left Panel */
+        .left-panel {
+            background: #000;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-right: 2px solid #333;
+        }
+
+        .profile {
+            text-align: center;
+        }
+
+        .profile-image {
+            width: 150px;
+            height: 150px;
+            background: linear-gradient(45deg, #ffbdde, #b5a5ff);
+            margin: 0 auto 1.5rem;
+            clip-path: polygon(20% 0%, 100% 20%, 80% 100%, 0% 80%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            color: #000;
+            font-weight: bold;
+        }
+
+        .profile h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: #ffbdde;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .profile h1 a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .profile p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+            line-height: 1.3;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-links a {
+            color: #b5a5ff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            padding: 0.5rem .9rem 0.5rem 0.8rem;
+            border: 1px solid #b5a5ff;
+            clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.3rem;
+        }
+
+        .social-links a:hover {
+            background: #b5a5ff;
+            color: #000;
+        }
+
+        .social-link-icon {
+            display: flex;
+            margin-right: 0;
+            transition: filter 0.3s ease;
+            padding: 0rem 0rem;
+            width: 14px;
+        }
+
+        .social-links a:hover .social-link-icon {
+            filter: brightness(0);
+        }
+
+        /* Right Panel: single scrolling CV column */
+        .right-panel {
+            background: #000;
+            overflow-y: auto;
+            padding: 2.5rem 3rem 4rem;
+        }
+
+        .cv {
+            max-width: 60rem;
+        }
+
+        /* Page header */
+        .cv-header {
+            border-bottom: 2px solid #333;
+            padding-bottom: 1.5rem;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-header h2 {
+            font-size: 1.8rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: #ffbdde;
+            margin-bottom: 0.5rem;
+        }
+
+        .cv-header .subtitle {
+            color: #ccc;
+            font-size: 0.95rem;
+            line-height: 1.4;
+            margin-bottom: 1.2rem;
+        }
+
+        .contact-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+        }
+
+        .contact-links a,
+        .contact-links span {
+            color: #b5a5ff;
+            text-decoration: none;
+            font-size: 0.85rem;
+            padding: 0.4rem 0.8rem;
+            border: 1px solid #b5a5ff;
+            transition: all 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+
+        .contact-links a:hover {
+            background: #b5a5ff;
+            color: #000;
+        }
+
+        .contact-links span {
+            color: #888;
+            border-color: #444;
+        }
+
+        .contact-icon {
+            width: 14px;
+            transition: filter 0.3s ease;
+        }
+
+        .contact-links a:hover .contact-icon {
+            filter: brightness(0);
+        }
+
+        /* CV sections */
+        .cv-section {
+            padding: 1.8rem 0 0.4rem;
+        }
+
+        .graphic-and-heading {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+            margin-bottom: 1.1rem;
+        }
+
+        .section-icon {
+            width: 22px;
+            height: 22px;
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%);
+            flex: none;
+        }
+
+        .cv-section h3 {
+            font-size: 1.25rem;
+            text-transform: uppercase;
+            letter-spacing: 1.5px;
+        }
+
+        .rule {
+            flex: 1;
+            height: 1px;
+            background: #333;
+        }
+
+        /* Alternating accents, matching the homepage sections */
+        .accent-purple h3 { color: #b5a5ff; }
+        .accent-purple .section-icon { background: #b5a5ff; }
+        .accent-purple .entry-date { color: #b5a5ff; }
+        .accent-purple .skill-label { color: #b5a5ff; }
+        .accent-purple .entry-title a { color: #b5a5ff; }
+        .accent-purple .entry-title a:hover { color: #ffbdde; }
+        .accent-purple .entry-date a { color: #b5a5ff; }
+        .accent-purple .entry-date a:hover { color: #ffbdde; }
+
+        .accent-pink h3 { color: #ffbdde; }
+        .accent-pink .section-icon { background: #ffbdde; }
+        .accent-pink .entry-date { color: #ffbdde; }
+        .accent-pink .skill-label { color: #ffbdde; }
+        .accent-pink .entry-title a { color: #ffbdde; }
+        .accent-pink .entry-title a:hover { color: #b5a5ff; }
+        .accent-pink .entry-date a { color: #ffbdde; }
+        .accent-pink .entry-date a:hover { color: #b5a5ff; }
+
+        /* Entries */
+        .entry {
+            margin-bottom: 1.3rem;
+        }
+
+        .entry:last-child {
+            margin-bottom: 0.4rem;
+        }
+
+        .entry-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            gap: 1.5rem;
+        }
+
+        .entry-title {
+            font-size: 1rem;
+            font-weight: bold;
+            color: #fff;
+            line-height: 1.35;
+        }
+
+        .entry-title a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .entry-date {
+            font-size: 0.85rem;
+            white-space: nowrap;
+            letter-spacing: 0.5px;
+        }
+
+        .entry-date a {
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .entry-meta {
+            color: #ccc;
+            font-size: 0.9rem;
+            margin-top: 0.2rem;
+            line-height: 1.4;
+        }
+
+        .entry-meta a {
+            color: #fff;
+            text-decoration: none;
+            border-bottom: 1px solid #555;
+            transition: all 0.3s ease;
+        }
+
+        .entry-meta a:hover {
+            color: #ffbdde;
+            border-bottom-color: #ffbdde;
+        }
+
+        .entry-meta em {
+            color: #999;
+        }
+
+        .entry ul {
+            list-style: none;
+            margin-top: 0.5rem;
+        }
+
+        .entry li {
+            color: #ccc;
+            font-size: 0.92rem;
+            line-height: 1.45;
+            padding-left: 1.1rem;
+            position: relative;
+            margin-bottom: 0.35rem;
+        }
+
+        .entry li::before {
+            content: "◆";
+            position: absolute;
+            left: 0;
+            font-size: 0.6rem;
+            top: 0.28rem;
+            color: #555;
+        }
+
+        .cv-section p {
+            color: #ccc;
+            line-height: 1.5;
+            font-size: 0.95rem;
+        }
+
+        /* Skills */
+        .skills-grid {
+            display: grid;
+            gap: 0.6rem;
+        }
+
+        .skill-row {
+            color: #ccc;
+            font-size: 0.92rem;
+            line-height: 1.45;
+        }
+
+        .skill-label {
+            font-weight: bold;
+        }
+
+        .footnote {
+            color: #777;
+            font-size: 0.85rem;
+            font-style: italic;
+            margin-top: 0.4rem;
+        }
+
+        @media (max-width: 1024px) {
+            body {
+                overflow: auto;
+                height: auto;
+            }
+
+            .container {
+                grid-template-columns: 1fr;
+                grid-template-rows: auto 1fr;
+                height: auto;
+            }
+
+            .left-panel {
+                border-right: none;
+                border-bottom: 2px solid #333;
+                padding: 1.5rem;
+            }
+
+            .profile-image {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile h1 {
+                font-size: 2rem;
+            }
+
+            .right-panel {
+                overflow-y: visible;
+                padding: 1.8rem 1.5rem 3rem;
+            }
+
+            .entry-head {
+                flex-direction: column;
+                gap: 0.15rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Left Panel -->
+        <div class="left-panel">
+            <div class="profile">
+                <div class="profile-image">
+                    <a href="index.html"><img src="images/cat-profile-pic.png" width="67.9%" alt="me but its a cat so its not me since im a human"></a>
+                </div>
+                <h1><a href="index.html">GARVY</a></h1>
+                <p>HI! I'm a Mathematician by day and a pun-loving, music-making, tetris-playing, board game-developing, church-going girly-pop... also by day :D</p>
+                <div class="social-links">
+                    <a href="index.html">Home</a>
+                    <a href="https://www.linkedin.com/in/iris-shi-b52b29171/">
+                        <img src="images/linkedin logo.png" class="social-link-icon">
+                        LinkedIn
+                    </a>
+                    <a href="https://github.com/iris-garvy">
+                        <img src="images/github logo.png" class="social-link-icon">
+                        GitHub
+                    </a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Right Panel -->
+        <div class="right-panel">
+            <div class="cv">
+
+                <div class="cv-header">
+                    <h2>Iris Shi &mdash; Research CV</h2>
+                    <p class="subtitle">Mathematician working with arithmetic geometry, singular learning theory, and zero-knowledge
+                        proof systems. PhD research in Artin&ndash;Schreier curves, published in <em>Proceedings of the AMS</em>.
+                        Proved a new lower bound resolving part of an open problem on the learning-theoretic geometry of neural
+                        networks, contributed to the MAIS open-problems repository. Also built Plonktris, a full-stack ZK application
+                        in Rust using plonky2 with recursive IVC proving.</p>
+                    <div class="contact-links">
+                        <a href="mailto:shi.iris0505@gmail.com">shi.iris0505@gmail.com</a>
+                        <a href="https://github.com/iris-garvy">
+                            <img src="images/github logo.png" class="contact-icon">
+                            iris-garvy
+                        </a>
+                        <a href="iris-cv-research.pdf">Download PDF</a>
+                        <span>New York, NY</span>
+                    </div>
+                </div>
+
+                <!-- Education -->
+                <div class="cv-section accent-purple">
+                    <div class="graphic-and-heading">
+                        <div class="section-icon"></div>
+                        <h3>Education</h3>
+                        <div class="rule"></div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">University of Florida &mdash; PhD in Mathematics</div>
+                            <div class="entry-date">2021 &ndash; 2026</div>
+                        </div>
+                        <ul>
+                            <li>Thesis: <em>Artin&ndash;Schreier Curves with Minimal a-number</em> (advised by Jeremy Booher)</li>
+                        </ul>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">University of Florida &mdash; BS in Mathematics, Minor in Statistics</div>
+                            <div class="entry-date">2017 &ndash; 2021</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Publications -->
+                <div class="cv-section accent-pink">
+                    <div class="graphic-and-heading">
+                        <div class="section-icon"></div>
+                        <h3>Publications &amp; Manuscripts</h3>
+                        <div class="rule"></div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">An Infinite Family of Artin&ndash;Schreier Curves with Minimal a-number</div>
+                            <div class="entry-date">2025</div>
+                        </div>
+                        <div class="entry-meta">Iris Y. Shi, <strong>Proceedings of the AMS</strong> &middot;
+                            <a href="https://arxiv.org/abs/2411.11201">arXiv:2411.11201</a></div>
+                        <ul>
+                            <li>Constructed infinite families of curves over finite fields with extremal invariants, resolving an
+                                open existence question using computational and deformation-theoretic methods.</li>
+                        </ul>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">A Width Bound for Quadratic Network Modular Addition</div>
+                            <div class="entry-date">2026</div>
+                        </div>
+                        <div class="entry-meta">Iris Y. Shi, <strong><a href="https://github.com/lionellevine/MAIS/blob/main/open-problems/O62/MAIS-O62-progress-1.md">MAIS Open Problems repository</a></strong></div>
+                        <ul>
+                            <li>Proved H<sub>min</sub>(p) &ge; (3p&minus;1)/2, a new lower bound on the minimal network width admitting
+                                an exact fit to modular addition, via a Fourier normal form and a bilinear-complexity
+                                (Alder&ndash;Strassen) contraction argument.</li>
+                        </ul>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">[Iwasawa Theory and T-adic Exponential Sums]</div>
+                            <div class="entry-date">Expected 2026</div>
+                        </div>
+                        <div class="entry-meta">with Jeremy Booher &middot; <em>Manuscript in preparation.</em></div>
+                        <ul>
+                            <li>Developed computational methods connecting p-adic L-functions and exponential sums, identifying
+                                structural similarities between previously disconnected invariants.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Research Talks -->
+                <div class="cv-section accent-purple">
+                    <div class="graphic-and-heading">
+                        <div class="section-icon"></div>
+                        <h3>Research Talks</h3>
+                        <div class="rule"></div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">A T-adic computation of the Cartier</div>
+                            <div class="entry-date">Mar 2026</div>
+                        </div>
+                        <div class="entry-meta">The 2026 Gainesville Number Theory Conference</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Artin&ndash;Schreier curves and the Cartier&ndash;Manin Matrix</div>
+                            <div class="entry-date">Mar 2026</div>
+                        </div>
+                        <div class="entry-meta">UF Graduate Math Colloquium</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Artin&ndash;Schreier Curves with Minimal a-number</div>
+                            <div class="entry-date">Nov 2025</div>
+                        </div>
+                        <div class="entry-meta">Bayou Arithmetic Research Days 6</div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Riemann's Existence Theorem and Complex Patching</div>
+                            <div class="entry-date">Sept 2025</div>
+                        </div>
+                        <div class="entry-meta">UF Algebra Seminar</div>
+                    </div>
+                </div>
+
+                <!-- Technical Experience -->
+                <div class="cv-section accent-pink">
+                    <div class="graphic-and-heading">
+                        <div class="section-icon"></div>
+                        <h3>Technical Experience</h3>
+                        <div class="rule"></div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">PhD research tooling</div>
+                            <div class="entry-date"><a href="https://github.com/iris-garvy/as-tadic">github repo</a></div>
+                        </div>
+                        <ul>
+                            <li>Developed a search algorithm in MAGMA to identify and categorize Artin&ndash;Schreier curves with
+                                extremal properties.</li>
+                            <li>Built a lightweight visualization tool for analyzing the complexity of large and sparse
+                                Cartier&ndash;Manin matrices.</li>
+                            <li>Benchmarked p-adic and T-adic approaches for Cartier operator construction, identifying shared
+                                computational bottlenecks and optimizing the naive implementation to near O(n log n) through
+                                algorithmic improvements.</li>
+                        </ul>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title"><a href="https://plonktris.com">plonktris</a>: a SNARK Tetris prover</div>
+                            <div class="entry-date"><a href="https://plonktris.com">plonktris.com</a></div>
+                        </div>
+                        <ul>
+                            <li>Designed PLONK circuits in plonky2 (Rust) verifying Tetris solutions as 33K-constraint systems over
+                                the Goldilocks field, with a recursive prover (chunked IVC via cyclic recursion) proving arbitrarily
+                                long solutions in bounded memory.</li>
+                            <li>Found and fixed a soundness bug where an out-of-range collision index let invalid piece placements
+                                verify.</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Teaching & Honors -->
+                <div class="cv-section accent-purple">
+                    <div class="graphic-and-heading">
+                        <div class="section-icon"></div>
+                        <h3>Teaching &amp; Honors</h3>
+                        <div class="rule"></div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Calculus and Linear Algebra Graduate Teaching Assistant, University of Florida</div>
+                            <div class="entry-date">2021 &ndash; 2026</div>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Mathematics Graduate Teaching Award</div>
+                            <div class="entry-date">May 2025</div>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Graduate Teaching Excellence Award</div>
+                            <div class="entry-date">Dec 2024</div>
+                        </div>
+                    </div>
+
+                    <div class="entry">
+                        <div class="entry-head">
+                            <div class="entry-title">Certificate of Teaching Excellence Award</div>
+                            <div class="entry-date">Dec 2022</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Skills -->
+                <div class="cv-section accent-pink">
+                    <div class="graphic-and-heading">
+                        <div class="section-icon"></div>
+                        <h3>Technical Skills</h3>
+                        <div class="rule"></div>
+                    </div>
+
+                    <div class="skills-grid">
+                        <div class="skill-row"><span class="skill-label">Languages:</span> Rust, Python, R</div>
+                        <div class="skill-row"><span class="skill-label">Mathematics:</span> p-adic methods, elliptic and
+                            Artin&ndash;Schreier curves over finite fields, singular learning theory</div>
+                        <div class="skill-row"><span class="skill-label">Cryptography:</span> plonky2, circom, noir, zero-knowledge
+                            proof systems</div>
+                        <div class="skill-row"><span class="skill-label">Other:</span> MAGMA (computational algebra system),
+                            SageMath</div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</body>
+</html>
